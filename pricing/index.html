@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="generator" content="Primo" />
+    <!-- HEAD_svelte-sjivy2_START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|space-grotesk:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|open-sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|space-grotesk:300,400,500,600,700" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/primoaf/image/upload/v1659676914/favicon_roaxv0.png">
+    <style>
+        /* Reset & standardize default styles */
+        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+        /* Design tokens (apply to components) */
+        :root {
+            --color-tint: #f8fbff;
+
+            --font-heading: "Space Grotesk", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+
+            /* Colors */
+            --color-base: #183b56;
+            --color-brand: #1565d8;
+            --color-accent: #36b37e;
+            --color-accent-2: #0d2436;
+            --color-light: #fcfcfd;
+            --color-shade: #cbcace;
+            --color-inverted: white;
+            --color-tint: #e5eaf4;
+
+            /* Base values */
+            --color: var(--color-base);
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 8px;
+            --border-color: #eee;
+            --background: white;
+        }
+
+        /* Root element (use instead of `body`) */
+        #page {
+            font-family: var(--font-body);
+            color: var(--color-base);
+            line-height: 1.2;
+            font-size: 1.125rem;
+            background: var(--background);
+        }
+
+        .section.has-content {
+            display: flex;
+            justify-content: center;
+            padding: 5rem 2rem;
+        }
+
+        .section.has-content .content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .content img {
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .content>p {
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .content a {}
+
+        .content h1 {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .content h3 {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .content ul {
+            list-style: disc;
+            padding-bottom: 1.5rem;
+            padding-left: 1.25rem;
+        }
+
+        .content ol {
+            list-style: decimal;
+            padding-bottom: 1.5rem;
+            padding-left: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .content blockquote {
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .heading-group {
+            display: grid;
+            gap: 1rem;
+            place-content: center;
+            text-align: center;
+        }
+
+        .heading-group .superhead {
+            font-family: var(--font-body);
+            color: var(--color-accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .heading-group .subheading {
+            color: #4f6373;
+            line-height: 1.4;
+            max-width: 600px;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .heading {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            line-height: 1.1;
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .button {
+            color: var(--color-brand, white);
+            background: var(--color-inverted);
+            border: 2px solid var(--color-brand);
+            border-radius: 6px;
+            padding: 8px 20px;
+            transition: 0.1s background, 0.1s color;
+        }
+
+        .button:hover {
+            color: var(--color-inverted);
+            background: var(--color-brand);
+            border-color: var(--color-inverted);
+        }
+
+        .button.inverted {
+            background: var(--color-white);
+            color: var(--color-brand);
+            border-color: #0d2436;
+        }
+
+        .link {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-brand);
+        }
+
+        .link .arrow {
+            transition: transform 0.1s;
+        }
+
+        .link:hover .arrow {
+            transform: translateX(4px);
+        }
+    </style><!-- HEAD_svelte-sjivy2_END -->
+    <style>
+        @import url("https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css");
+
+        header.svelte-158e37q.svelte-158e37q.svelte-158e37q {
+            border-bottom: 1px solid var(--border-color)
+        }
+
+        .section-container.svelte-158e37q.svelte-158e37q.svelte-158e37q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .desktop-nav.svelte-158e37q.svelte-158e37q.svelte-158e37q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            width: 100%
+        }
+
+        .desktop-nav.svelte-158e37q .logo.svelte-158e37q.svelte-158e37q {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-right: 1.5rem;
+            width: var(--size)
+        }
+
+        .desktop-nav.svelte-158e37q nav.svelte-158e37q.svelte-158e37q {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem
+        }
+
+        .desktop-nav.svelte-158e37q nav.svelte-158e37q a.svelte-158e37q {
+            font-size: 1rem;
+            font-weight: 500;
+            display: none
+        }
+
+        .desktop-nav.svelte-158e37q nav a.nav-item.svelte-158e37q.svelte-158e37q {
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.1s
+        }
+
+        .desktop-nav.svelte-158e37q nav a.nav-item.svelte-158e37q.svelte-158e37q:hover {
+            border-color: var(--color-brand)
+        }
+
+        .desktop-nav.svelte-158e37q button#open.svelte-158e37q.svelte-158e37q {
+            font-size: 1.5rem;
+            margin-left: auto
+        }
+
+        nav#mobile-nav.svelte-158e37q.svelte-158e37q.svelte-158e37q {
+            position: absolute;
+            flex-direction: column;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            left: 0.5rem;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 2rem;
+            z-index: 2
+        }
+
+        nav#mobile-nav.svelte-158e37q a.svelte-158e37q.svelte-158e37q {
+            display: block
+        }
+
+        nav#mobile-nav.svelte-158e37q hr.svelte-158e37q.svelte-158e37q {
+            width: 100%
+        }
+
+        nav#mobile-nav.svelte-158e37q .button.svelte-158e37q.svelte-158e37q {
+            width: 100%;
+            justify-content: center
+        }
+
+        nav#mobile-nav.svelte-158e37q button#close.svelte-158e37q.svelte-158e37q {
+            display: block;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem
+        }
+
+        @media(min-width: 600px) {
+
+            #open.svelte-158e37q.svelte-158e37q.svelte-158e37q,
+            #mobile-nav.svelte-158e37q.svelte-158e37q.svelte-158e37q {
+                display: none
+            }
+
+            .desktop-nav.svelte-158e37q nav.svelte-158e37q a.svelte-158e37q {
+                display: inline-block
+            }
+        }
+
+        .section-container.svelte-lvb0mc.svelte-lvb0mc {
+            display: grid;
+            gap: 0.5rem
+        }
+
+        .subheading.svelte-lvb0mc.svelte-lvb0mc {
+            margin-bottom: 4rem
+        }
+
+        .tiers.svelte-lvb0mc.svelte-lvb0mc {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            place-items: start;
+            gap: 2rem
+        }
+
+        .tiers.svelte-lvb0mc .tier.svelte-lvb0mc {
+            display: grid;
+            gap: 2rem;
+            border: 1px solid var(--border-color, #eee);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            width: 100%
+        }
+
+        .tiers.svelte-lvb0mc .tier header.svelte-lvb0mc {
+            display: grid;
+            gap: 0.5rem
+        }
+
+        .tiers.svelte-lvb0mc .tier header .price.svelte-lvb0mc {
+            font-weight: 600;
+            margin-bottom: 1rem
+        }
+
+        .tiers.svelte-lvb0mc .tier header .price span.numerator.svelte-lvb0mc {
+            font-size: 2rem;
+            color: var(--color-brand)
+        }
+
+        .tiers.svelte-lvb0mc .tier header .price span.denominator.svelte-lvb0mc {
+            opacity: 0.8
+        }
+
+        .tiers.svelte-lvb0mc .tier .title.svelte-lvb0mc {
+            color: var(--color);
+            font-size: 1.25rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            justify-self: flex-start;
+            margin-bottom: 0.5rem
+        }
+
+        .tiers.svelte-lvb0mc .tier .description.svelte-lvb0mc {
+            font-size: 0.875rem;
+            line-height: 1.5
+        }
+
+        .tiers.svelte-lvb0mc .tier hr.svelte-lvb0mc {
+            width: 100%;
+            border-color: var(--border-color, #eee)
+        }
+
+        .tiers.svelte-lvb0mc .tier ul.features.svelte-lvb0mc {
+            display: grid;
+            gap: 1rem
+        }
+
+        .tiers.svelte-lvb0mc .tier ul.features li.svelte-lvb0mc {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .tiers.svelte-lvb0mc .tier ul.features li .icon.svelte-lvb0mc {
+            color: var(--color-accent, rebeccapurple)
+        }
+
+        .tiers.svelte-lvb0mc .tier ul.features li .item.svelte-lvb0mc {
+            font-size: 0.875rem
+        }
+
+        .tiers.svelte-lvb0mc .tier .button.svelte-lvb0mc {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem
+        }
+
+        svg.svelte-1b30nxp path.svelte-1b30nxp {
+            fill: var(--color-accent-2)
+        }
+
+        section.svelte-1b30nxp.svelte-1b30nxp {
+            background: var(--color-accent-2)
+        }
+
+        .section-container.svelte-1b30nxp.svelte-1b30nxp {
+            display: grid;
+            gap: 3rem;
+            padding-top: 1rem
+        }
+
+        @media(min-width: 900px) {
+            .section-container.svelte-1b30nxp.svelte-1b30nxp {
+                gap: 7rem;
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .signup.svelte-1b30nxp.svelte-1b30nxp {
+            color: var(--color-inverted);
+            display: grid;
+            gap: 1rem;
+            place-content: start
+        }
+
+        .signup.svelte-1b30nxp form.svelte-1b30nxp {
+            display: flex;
+            gap: .5rem
+        }
+
+        .signup.svelte-1b30nxp form input.svelte-1b30nxp,
+        .signup.svelte-1b30nxp form button.svelte-1b30nxp {
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: calc(var(--border-radius) / 2)
+        }
+
+        .signup.svelte-1b30nxp form button.svelte-1b30nxp {
+            background: var(--color-brand);
+            font-size: 1.125rem;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem
+        }
+
+        .signup.svelte-1b30nxp .footer.svelte-1b30nxp {
+            opacity: 0.7;
+            font-size: 0.875rem;
+            line-height: 1.75
+        }
+
+        .cards.svelte-1b30nxp.svelte-1b30nxp {
+            display: grid;
+            gap: 1rem
+        }
+
+        .cards.svelte-1b30nxp .card.svelte-1b30nxp {
+            display: grid;
+            grid-template-columns: 3rem auto;
+            -moz-column-gap: 1.5rem;
+            column-gap: 1.5rem;
+            row-gap: 0.5rem;
+            padding: 1.5rem;
+            background: var(--background);
+            border-radius: var(--border-radius)
+        }
+
+        .cards.svelte-1b30nxp .card .icon.svelte-1b30nxp {
+            color: var(--color-brand);
+            padding: 0.25rem;
+            font-size: 3rem;
+            grid-row: span 2
+        }
+
+        .cards.svelte-1b30nxp .card .title.svelte-1b30nxp {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.5
+        }
+
+        .cards.svelte-1b30nxp .card .description.svelte-1b30nxp {
+            opacity: 0.7;
+            font-size: 1rem
+        }
+
+        footer.svelte-timv33.svelte-timv33 {
+            border-top: 1px solid var(--border-color, #e5e5e7)
+        }
+
+        .section-container.svelte-timv33.svelte-timv33 {
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding-block: 1rem
+        }
+
+        @media(min-width: 600px) {
+            .section-container.svelte-timv33.svelte-timv33 {
+                display: flex;
+                flex-direction: row
+            }
+        }
+
+        nav.svelte-timv33.svelte-timv33 {
+            display: flex;
+            gap: 1rem
+        }
+
+        .primo.svelte-timv33.svelte-timv33 {
+            font-weight: 600;
+            font-size: .875rem
+        }
+
+        .primo.svelte-timv33 a.svelte-timv33 {
+            text-decoration: underline
+        }
+
+        ul.svelte-timv33.svelte-timv33 {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+            list-style: none
+        }
+
+        ul.svelte-timv33 a.svelte-timv33 {
+            color: var(--color-brand);
+            transition: var(--transition)
+        }
+
+        ul.svelte-timv33 a.svelte-timv33:hover {
+            color: var(--color-accent)
+        }
+    </style>
+</head>
+
+<body id="page">
+
+    <div class="section" id="section-04280550-15a5-490f-88b2-63142e407d6d">
+        <div class="component">
+            <header class="svelte-158e37q">
+                <div class="section-container svelte-158e37q">
+                    <div class="desktop-nav svelte-158e37q"><a href="/" class="logo svelte-158e37q" style="--size: 8rem;"><img src="data:image/svg+xml,%3Csvg id='logo-51' width='167' height='41' viewBox='0 0 167 41' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.6307 28.7936H60.5827V25.1936H52.8787V11.6336H48.6307V28.7936Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M67.6639 26.3936C65.9599 26.3936 65.0719 24.9056 65.0719 22.6736C65.0719 20.4416 65.9599 18.9296 67.6639 18.9296C69.3679 18.9296 70.2799 20.4416 70.2799 22.6736C70.2799 24.9056 69.3679 26.3936 67.6639 26.3936ZM67.6879 29.1776C71.6479 29.1776 74.2399 26.3696 74.2399 22.6736C74.2399 18.9776 71.6479 16.1696 67.6879 16.1696C63.7519 16.1696 61.1119 18.9776 61.1119 22.6736C61.1119 26.3696 63.7519 29.1776 67.6879 29.1776Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M81.0943 33.0416C82.9183 33.0416 84.5263 32.6336 85.6063 31.6736C86.5903 30.7856 87.2383 29.4416 87.2383 27.5936V16.5056H83.4943V17.8256H83.4463C82.7263 16.7936 81.6223 16.1456 79.9903 16.1456C76.9423 16.1456 74.8303 18.6896 74.8303 22.2896C74.8303 26.0576 77.3983 28.1216 80.1583 28.1216C81.6463 28.1216 82.5823 27.5216 83.3023 26.7056H83.3983V27.9296C83.3983 29.4176 82.7023 30.2816 81.0463 30.2816C79.7503 30.2816 79.1023 29.7296 78.8863 29.0816H75.0943C75.4783 31.6496 77.7103 33.0416 81.0943 33.0416ZM81.0703 25.2176C79.6063 25.2176 78.6463 24.0176 78.6463 22.1696C78.6463 20.2976 79.6063 19.0976 81.0703 19.0976C82.7023 19.0976 83.5663 20.4896 83.5663 22.1456C83.5663 23.8736 82.7743 25.2176 81.0703 25.2176Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M94.9367 26.3936C93.2327 26.3936 92.3447 24.9056 92.3447 22.6736C92.3447 20.4416 93.2327 18.9296 94.9367 18.9296C96.6407 18.9296 97.5527 20.4416 97.5527 22.6736C97.5527 24.9056 96.6407 26.3936 94.9367 26.3936ZM94.9607 29.1776C98.9207 29.1776 101.513 26.3696 101.513 22.6736C101.513 18.9776 98.9207 16.1696 94.9607 16.1696C91.0247 16.1696 88.3847 18.9776 88.3847 22.6736C88.3847 26.3696 91.0247 29.1776 94.9607 29.1776Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M102.655 28.7936H106.567V16.5056H102.655V28.7936ZM102.655 14.8016H106.567V11.6336H102.655V14.8016Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M108.264 32.8496H112.176V27.5216H112.224C112.992 28.5536 114.12 29.1776 115.704 29.1776C118.92 29.1776 121.056 26.6336 121.056 22.6496C121.056 18.9536 119.064 16.1456 115.8 16.1456C114.12 16.1456 112.92 16.8896 112.08 17.9936H112.008V16.5056H108.264V32.8496ZM114.696 26.1536C113.016 26.1536 112.056 24.7856 112.056 22.7936C112.056 20.8016 112.92 19.2896 114.624 19.2896C116.304 19.2896 117.096 20.6816 117.096 22.7936C117.096 24.8816 116.184 26.1536 114.696 26.1536Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M127.426 29.1776C130.642 29.1776 133.018 27.7856 133.018 25.0976C133.018 21.9536 130.474 21.4016 128.314 21.0416C126.754 20.7536 125.362 20.6336 125.362 19.7696C125.362 19.0016 126.106 18.6416 127.066 18.6416C128.146 18.6416 128.89 18.9776 129.034 20.0816H132.634C132.442 17.6576 130.57 16.1456 127.09 16.1456C124.186 16.1456 121.786 17.4896 121.786 20.0816C121.786 22.9616 124.066 23.5376 126.202 23.8976C127.834 24.1856 129.322 24.3056 129.322 25.4096C129.322 26.2016 128.578 26.6336 127.402 26.6336C126.106 26.6336 125.29 26.0336 125.146 24.8096H121.45C121.57 27.5216 123.826 29.1776 127.426 29.1776Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M138.331 29.1536C140.035 29.1536 141.115 28.4816 142.003 27.2816H142.075V28.7936H145.819V16.5056H141.907V23.3696C141.907 24.8336 141.091 25.8416 139.747 25.8416C138.499 25.8416 137.899 25.0976 137.899 23.7536V16.5056H134.011V24.5696C134.011 27.3056 135.499 29.1536 138.331 29.1536Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath d='M147.521 28.7936H151.433V21.9056C151.433 20.4416 152.153 19.4096 153.377 19.4096C154.553 19.4096 155.105 20.1776 155.105 21.4976V28.7936H159.017V21.9056C159.017 20.4416 159.713 19.4096 160.961 19.4096C162.137 19.4096 162.689 20.1776 162.689 21.4976V28.7936H166.601V20.8016C166.601 18.0416 165.209 16.1456 162.425 16.1456C160.841 16.1456 159.521 16.8176 158.561 18.3056H158.513C157.889 16.9856 156.665 16.1456 155.057 16.1456C153.281 16.1456 152.105 16.9856 151.337 18.2576H151.265V16.5056H147.521V28.7936Z' class='cneutral' fill='%231e293d' stop-color='%231e293d'%3E%3C/path%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.65417 3.89149C7.22351 4.89185 5.92981 6.0746 4.80676 7.40602C9.39606 6.97995 15.2266 7.67567 21.9958 11.0603C29.2244 14.6745 35.0452 14.7967 39.0962 14.0153C38.7286 12.9024 38.2658 11.8328 37.7177 10.816C33.0804 11.3051 27.1354 10.6577 20.207 7.1936C15.8074 4.9938 11.9292 4.08763 8.65417 3.89149ZM35.0088 6.96027C31.3467 2.86862 26.0248 0.293625 20.1014 0.293625C18.3619 0.293625 16.6741 0.515732 15.0651 0.933105C17.2443 1.52771 19.5593 2.39761 21.9958 3.61589C27.0684 6.15215 31.4478 6.96878 35.0088 6.96027ZM39.9623 17.9217C35.0683 18.8881 28.3102 18.6896 20.207 14.638C12.6314 10.8502 6.60187 10.8979 2.53534 11.8016C2.32544 11.8482 2.12048 11.8972 1.92047 11.9482C1.38806 13.1061 0.963074 14.3237 0.658142 15.5881C0.983826 15.5011 1.32037 15.4184 1.6676 15.3412C6.60101 14.2449 13.5715 14.2925 21.9958 18.5047C29.5715 22.2925 35.601 22.2448 39.6676 21.3411C39.8069 21.3102 39.9442 21.2782 40.0792 21.2452C40.094 20.9299 40.1014 20.6126 40.1014 20.2936C40.1014 19.4911 40.0542 18.6996 39.9623 17.9217ZM39.4262 25.4659C34.5797 26.3132 28.0184 25.988 20.207 22.0824C12.6314 18.2946 6.60187 18.3423 2.53534 19.246C1.63269 19.4465 0.820679 19.6908 0.10437 19.9487C0.102417 20.0634 0.10144 20.1784 0.10144 20.2936C0.10144 31.3393 9.05573 40.2936 20.1014 40.2936C29.3585 40.2936 37.1467 34.0045 39.4262 25.4659Z' class='ccustom' fill='%231565d8' stop-color='%231565d8'%3E%3C/path%3E%3C/svg%3E" alt=""></a>
+                        <nav class="svelte-158e37q"><a class="nav-item svelte-158e37q" href="/">About</a><a class="nav-item svelte-158e37q" href="/">Product</a><a class="nav-item svelte-158e37q" href="/">Why</a><a class="nav-item svelte-158e37q" href="/">Pricing</a>
+                            <a class="button svelte-158e37q" href="/">Sign up</a>
+                            <button id="open" aria-label="Open mobile navigation" class="svelte-158e37q"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--ic"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z" /><!-- HTML_TAG_END -->
+                                </svg></button>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="section" id="section-441bc2af-2bbf-4bc4-9c5c-1c606211293f">
+        <div class="component">
+            <section class="svelte-lvb0mc">
+                <div class="section-container svelte-lvb0mc">
+                    <div class="heading-group"><span class="superhead">pricing</span>
+                        <h2 class="heading">There's a plan for everyone.</h2>
+                        <h3 class="subheading svelte-lvb0mc">Whether you just need to spin up a few projects or you want to take it to the next level. We have a plan for you.</h3>
+                    </div>
+                    <div class="tiers svelte-lvb0mc">
+                        <div class="tier svelte-lvb0mc">
+                            <header class="svelte-lvb0mc">
+                                <div class="price svelte-lvb0mc"><span class="numerator svelte-lvb0mc">$15</span>
+                                    <span class="denominator svelte-lvb0mc">/month</span>
+                                </div>
+                                <h3 class="title svelte-lvb0mc">Individual</h3>
+                                <span class="description svelte-lvb0mc"><!-- HTML_TAG_START -->
+                                    <p>Perfect for freelancers</p><!-- HTML_TAG_END -->
+                                </span>
+                            </header>
+                            <hr class="svelte-lvb0mc">
+                            <ul class="features svelte-lvb0mc">
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Asido saslt donet</span>
+                                </li>
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Aute magna occaecat</span>
+                                </li>
+                            </ul>
+                            <a href="/" class="button svelte-lvb0mc">Get Started</a>
+                        </div>
+                        <div class="tier svelte-lvb0mc">
+                            <header class="svelte-lvb0mc">
+                                <div class="price svelte-lvb0mc"><span class="numerator svelte-lvb0mc">$25</span>
+                                    <span class="denominator svelte-lvb0mc">/month</span>
+                                </div>
+                                <h3 class="title svelte-lvb0mc">Business</h3>
+                                <span class="description svelte-lvb0mc"><!-- HTML_TAG_START -->
+                                    <p>Ullamco veniam id occaecat ullamco nisi et ipsum in ut velit reprehenderit nisi enim sunt. Elit eu commodo elit excepteur aute sit sit laborum.</p><!-- HTML_TAG_END -->
+                                </span>
+                            </header>
+                            <hr class="svelte-lvb0mc">
+                            <ul class="features svelte-lvb0mc">
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Pariatur consectetur excepteur</span>
+                                </li>
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Lorem labore cupidatat</span>
+                                </li>
+                            </ul>
+                            <a href="/" class="button svelte-lvb0mc">Get Started</a>
+                        </div>
+                        <div class="tier svelte-lvb0mc">
+                            <header class="svelte-lvb0mc">
+                                <div class="price svelte-lvb0mc"><span class="numerator svelte-lvb0mc">$49</span>
+                                    <span class="denominator svelte-lvb0mc">/month</span>
+                                </div>
+                                <h3 class="title svelte-lvb0mc">Premium</h3>
+                                <span class="description svelte-lvb0mc"><!-- HTML_TAG_START -->
+                                    <p>Commodo irure ad duis nulla anim incididunt. Aute aute laboris qui tempor pariatur duis labore minim deserunt id laboris tempor sit aliquip adipisicing.</p><!-- HTML_TAG_END -->
+                                </span>
+                            </header>
+                            <hr class="svelte-lvb0mc">
+                            <ul class="features svelte-lvb0mc">
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Sint fugiat magna</span>
+                                </li>
+                                <li class="svelte-lvb0mc"><span class="icon svelte-lvb0mc"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                            <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z" /><!-- HTML_TAG_END -->
+                                        </svg></span>
+                                    <span class="item svelte-lvb0mc">Aute ad id</span>
+                                </li>
+                            </ul>
+                            <a href="/" class="button svelte-lvb0mc">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-c275deac-95ff-4446-926e-d59cda304da0">
+        <div class="component"><svg viewBox="0 0 1440 175" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-1b30nxp">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 175H0V0C240 53.3333 480 80 720 80C960 80 1200 53.3333 1440 0V175Z" class="svelte-1b30nxp"></path>
+            </svg>
+            <section class="svelte-1b30nxp">
+                <div class="section-container svelte-1b30nxp">
+                    <div class="signup svelte-1b30nxp">
+                        <h2 class="heading">Want to schedule a demo?</h2>
+                        <form action="" class="svelte-1b30nxp"><input type="email" placeholder="Your Email" class="svelte-1b30nxp">
+                            <button type="button" class="svelte-1b30nxp">Submit</button>
+                        </form>
+                        <span class="footer svelte-1b30nxp">Submit your email and we'll be in touch to set up a zoom demo call.</span>
+                    </div>
+                    <div class="cards svelte-1b30nxp">
+                        <div class="card svelte-1b30nxp">
+                            <div class="icon svelte-1b30nxp"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M12 3c5.5 0 10 3.58 10 8s-4.5 8-10 8c-1.24 0-2.43-.18-3.53-.5C5.55 21 2 21 2 21c2.33-2.33 2.7-3.9 2.75-4.5C3.05 15.07 2 13.13 2 11c0-4.42 4.5-8 10-8Z" /><!-- HTML_TAG_END -->
+                                </svg></div>
+                            <span class="title svelte-1b30nxp">24/7 Customer Service</span>
+                            <span class="description svelte-1b30nxp">Veniam laboris consectetur</span>
+                        </div>
+                        <div class="card svelte-1b30nxp">
+                            <div class="icon svelte-1b30nxp"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" /><!-- HTML_TAG_END -->
+                                </svg></div>
+                            <span class="title svelte-1b30nxp">Open Source and Free</span>
+                            <span class="description svelte-1b30nxp">Never get locked in.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-a08b5af5-7685-4e5f-a817-0a6b04329bf0">
+        <div class="component">
+            <footer class="svelte-timv33">
+                <div class="section-container svelte-timv33">
+                    <nav class="svelte-timv33"><a href="/about">About us</a><a href="/why">Why Cali</a></nav>
+                    <span class="primo svelte-timv33"><a href="https://primo.so" class="svelte-timv33">Primo</a> Powered </span>
+                    <ul class="svelte-timv33">
+                        <li><a href="https://twitter.com" aria-label="mdi:twitter" class="svelte-timv33"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z" /><!-- HTML_TAG_END -->
+                                </svg></a>
+                        </li>
+                        <li><a href="https://facebook.com" aria-label="mdi:facebook" class="svelte-timv33"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z" /><!-- HTML_TAG_END -->
+                                </svg></a>
+                        </li>
+                        <li><a href="https://github.com" aria-label="mdi:github" class="svelte-timv33"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                    <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" /><!-- HTML_TAG_END -->
+                                </svg></a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="module">
+        const path = window.location.pathname === '/' ? '' : window.location.pathname
+        const [{
+            default: App
+        }] = await Promise.all([
+            import(path + '/_module.js')
+        ]).catch(e => console.error(e))
+        new App({
+            target: document.querySelector('body'),
+            hydrate: true,
+        })
+    </script>
+</body>
+
+</html>
