@@ -265,6 +265,14 @@ function attr(node, attribute, value) {
     else if (node.getAttribute(attribute) !== value)
         node.setAttribute(attribute, value);
 }
+/**
+ * List of attributes that should always be set through the attr method,
+ * because updating them through the property setter doesn't work reliably.
+ * In the example of `width`/`height`, the problem is that the setter only
+ * accepts numeric values, but the attribute can also be set to a string like `50%`.
+ * If this list becomes too big, rethink this approach.
+ */
+const always_set_through_set_attribute = ['width', 'height'];
 function set_attributes(node, attributes) {
     // @ts-ignore
     const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
@@ -278,7 +286,7 @@ function set_attributes(node, attributes) {
         else if (key === '__value') {
             node.value = node[key] = attributes[key];
         }
-        else if (descriptors[key] && descriptors[key].set) {
+        else if (descriptors[key] && descriptors[key].set && always_set_through_set_attribute.indexOf(key) === -1) {
             node[key] = attributes[key];
         }
         else {
@@ -392,7 +400,7 @@ function set_data(text, data) {
     text.data = data;
 }
 function set_style(node, key, value, important) {
-    if (value === null) {
+    if (value == null) {
         node.style.removeProperty(key);
     }
     else {
@@ -5508,14 +5516,16 @@ function get_each_context$4(ctx, list, i) {
 	child_ctx[5] = list[i].name;
 	child_ctx[6] = list[i].subtitle;
 	child_ctx[7] = list[i].image;
+	child_ctx[9] = i;
 	return child_ctx;
 }
 
-// (67:4) {#each testimonials as { quote, name, subtitle, image }}
+// (67:4) {#each testimonials as { quote, name, subtitle, image }
 function create_each_block$4(ctx) {
 	let li;
 	let div0;
 	let raw_value = /*quote*/ ctx[4].html + "";
+	let div0_data_key_value;
 	let t0;
 	let div2;
 	let img;
@@ -5552,7 +5562,7 @@ function create_each_block$4(ctx) {
 		l(nodes) {
 			li = claim_element(nodes, "LI", { class: true });
 			var li_nodes = children(li);
-			div0 = claim_element(li_nodes, "DIV", { class: true });
+			div0 = claim_element(li_nodes, "DIV", { class: true, "data-key": true });
 			var div0_nodes = children(div0);
 			div0_nodes.forEach(detach);
 			t0 = claim_space(li_nodes);
@@ -5579,6 +5589,7 @@ function create_each_block$4(ctx) {
 		},
 		h() {
 			attr(div0, "class", "quote svelte-585z62");
+			attr(div0, "data-key", div0_data_key_value = "testimonials[" + /*i*/ ctx[9] + "].quote");
 			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[7].url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*image*/ ctx[7].alt);
 			attr(img, "class", "svelte-585z62");
@@ -6864,10 +6875,7 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
 							"size": null
 						},
-						"quote": {
-							"html": "<p>\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\"</p>",
-							"markdown": "\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\"\n\n"
-						},
+						"quote": "\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\"",
 						"subtitle": "Director at Expensify"
 					},
 					{
@@ -6878,10 +6886,7 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
 							"size": null
 						},
-						"quote": {
-							"html": "<p>\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\"</p>",
-							"markdown": "\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\"\n\n"
-						},
+						"quote": "\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\"",
 						"subtitle": "Executive at Fintech"
 					},
 					{
@@ -6892,10 +6897,7 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
 							"size": null
 						},
-						"quote": {
-							"html": "<p>\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\"</p>",
-							"markdown": "\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\"\n\n"
-						},
+						"quote": "\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\"",
 						"subtitle": "Developer at Apple"
 					},
 					{
@@ -6906,10 +6908,7 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=798&q=80",
 							"size": null
 						},
-						"quote": {
-							"html": "<p>\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\"</p>",
-							"markdown": "\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\"\n"
-						},
+						"quote": "\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\"",
 						"subtitle": "Designer at Media Agency"
 					}
 				]
