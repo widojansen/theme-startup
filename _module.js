@@ -6875,7 +6875,10 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
 							"size": null
 						},
-						"quote": "\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\"",
+						"quote": {
+							"html": "<p>\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\" </p>",
+							"markdown": "\"Incididunt ipsum elit Lorem Lorem do tempor adipisicing magna laboris labore nostrud magna cillum. Qui quis elit eu officia eu.\" "
+						},
 						"subtitle": "Director at Expensify"
 					},
 					{
@@ -6886,7 +6889,10 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
 							"size": null
 						},
-						"quote": "\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\"",
+						"quote": {
+							"html": "<p>\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\" </p>",
+							"markdown": "\"Proident ad mollit cupidatat enim consequat nisi laborum aliqua. Reprehenderit exercitation laboris consequat sunt occaecat magna sunt velit in occaecat.\" "
+						},
 						"subtitle": "Executive at Fintech"
 					},
 					{
@@ -6897,7 +6903,10 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
 							"size": null
 						},
-						"quote": "\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\"",
+						"quote": {
+							"html": "<p>\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\" </p>",
+							"markdown": "\"Aute sint culpa Lorem ipsum mollit do cillum ullamco cupidatat cupidatat ipsum est. Consectetur id nisi pariatur velit qui.\" "
+						},
 						"subtitle": "Developer at Apple"
 					},
 					{
@@ -6908,7 +6917,10 @@ function create_fragment$c(ctx) {
 							"url": "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=798&q=80",
 							"size": null
 						},
-						"quote": "\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\"",
+						"quote": {
+							"html": "<p>\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\" </p>",
+							"markdown": "\"Nulla esse commodo consectetur dolore exercitation culpa cillum elit. Lorem ut in sit irure tempor id tempor adipisicing labore enim veniam.\" "
+						},
 						"subtitle": "Designer at Media Agency"
 					}
 				]
