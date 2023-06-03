@@ -6359,25 +6359,25 @@ function create_fragment$9(ctx) {
 				],
 				social: [
 					{
-						"icon": "mdi:twitter",
 						"link": {
 							"url": "https://twitter.com",
 							"label": "Twitter"
-						}
+						},
+						"icon": "mdi:twitter"
 					},
 					{
-						"icon": "mdi:facebook",
 						"link": {
 							"url": "https://facebook.com",
 							"label": "Facebook"
-						}
+						},
+						"icon": "mdi:facebook"
 					},
 					{
-						"icon": "mdi:github",
 						"link": {
 							"url": "https://github.com",
-							"label": "labore"
-						}
+							"label": "Github"
+						},
+						"icon": "mdi:github"
 					}
 				]
 			}

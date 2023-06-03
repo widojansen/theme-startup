@@ -4275,7 +4275,7 @@ function get_each_context$2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (117:6) {#each cards as { icon, title, description }}
+// (121:6) {#each cards as { icon, title, description }}
 function create_each_block$2(ctx) {
 	let div1;
 	let div0;
@@ -4328,10 +4328,10 @@ function create_each_block$2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "icon svelte-1b30nxp");
-			attr(span0, "class", "title svelte-1b30nxp");
-			attr(span1, "class", "description svelte-1b30nxp");
-			attr(div1, "class", "card svelte-1b30nxp");
+			attr(div0, "class", "icon svelte-iewj14");
+			attr(span0, "class", "title svelte-iewj14");
+			attr(span1, "class", "description svelte-iewj14");
+			attr(div1, "class", "card svelte-iewj14");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -4512,24 +4512,24 @@ function create_fragment$5(ctx) {
 			attr(path, "fill-rule", "evenodd");
 			attr(path, "clip-rule", "evenodd");
 			attr(path, "d", "M1440 175H0V0C240 53.3333 480 80 720 80C960 80 1200 53.3333 1440 0V175Z");
-			attr(path, "class", "svelte-1b30nxp");
+			attr(path, "class", "svelte-iewj14");
 			attr(svg, "viewBox", "0 0 1440 175");
 			attr(svg, "fill", "none");
 			attr(svg, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg, "class", "svelte-1b30nxp");
+			attr(svg, "class", "svelte-iewj14");
 			attr(h2, "class", "heading");
 			attr(input, "type", "email");
 			attr(input, "placeholder", input_placeholder_value = /*form*/ ctx[1].placeholder);
-			attr(input, "class", "svelte-1b30nxp");
+			attr(input, "class", "svelte-iewj14");
 			attr(button, "type", "button");
-			attr(button, "class", "svelte-1b30nxp");
+			attr(button, "class", "svelte-iewj14");
 			attr(form_1, "action", "");
-			attr(form_1, "class", "svelte-1b30nxp");
-			attr(span, "class", "footer svelte-1b30nxp");
-			attr(div0, "class", "signup svelte-1b30nxp");
-			attr(div1, "class", "cards svelte-1b30nxp");
-			attr(div2, "class", "section-container svelte-1b30nxp");
-			attr(section, "class", "svelte-1b30nxp");
+			attr(form_1, "class", "svelte-iewj14");
+			attr(span, "class", "footer svelte-iewj14");
+			attr(div0, "class", "signup svelte-iewj14");
+			attr(div1, "class", "cards svelte-iewj14");
+			attr(div2, "class", "section-container svelte-iewj14");
+			attr(section, "class", "svelte-iewj14");
 			attr(div3, "class", "component");
 			attr(div4, "class", "section");
 			attr(div4, "id", "section-2f80fdbc-c3cc-418e-b033-3bab2753ec14");
@@ -5192,25 +5192,25 @@ function create_fragment$7(ctx) {
 				],
 				social: [
 					{
-						"icon": "mdi:twitter",
 						"link": {
 							"url": "https://twitter.com",
 							"label": "Twitter"
-						}
+						},
+						"icon": "mdi:twitter"
 					},
 					{
-						"icon": "mdi:facebook",
 						"link": {
 							"url": "https://facebook.com",
 							"label": "Facebook"
-						}
+						},
+						"icon": "mdi:facebook"
 					},
 					{
-						"icon": "mdi:github",
 						"link": {
 							"url": "https://github.com",
-							"label": "labore"
-						}
+							"label": "Github"
+						},
+						"icon": "mdi:github"
 					}
 				]
 			}
